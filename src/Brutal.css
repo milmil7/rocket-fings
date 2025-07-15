@@ -1,0 +1,342 @@
+/* General Body - Brutalist Foundation */
+body {
+    background: #333333; /* Dark charcoal/concrete background */
+    color: #E0E0E0; /* Light gray text for contrast */
+    font-family: 'Arial Black', 'Impact', sans-serif; /* Strong, impactful font */
+    font-size: 16px;
+    line-height: 1.3;
+    letter-spacing: 1px; /* Slightly spaced letters for raw feel */
+}
+
+/* --- Container - A Solid Block --- */
+.container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    background: #222222; /* Even darker, heavy background */
+    border: 4px solid #00FFFF; /* Stark, electric cyan border */
+    box-shadow: none; /* No soft shadows */
+    border-radius: 0; /* Absolutely no rounded corners */
+}
+
+/* --- Text Elements - Bold and Uncompromising --- */
+.text-to-type,
+.text-to-memorize {
+    margin: 20px 0;
+    font-size: 1.8em; /* Larger, more dominant text */
+    word-wrap: break-word;
+    background: #111111; /* Near black, unyielding background */
+    color: #FF00FF; /* Vibrant magenta for key text */
+    padding: 15px; /* More padding for a blockier feel */
+    border: 2px solid #00FFFF; /* Cyan border for definition */
+    border-radius: 0; /* No softness */
+    text-transform: uppercase; /* Common brutalist effect */
+}
+
+.correct {
+    color: #00FF00; /* Bright, raw green */
+}
+
+.incorrect {
+    color: #FF0000; /* Harsh, warning red */
+}
+
+/* --- Input Fields - Direct and Functional --- */
+input,
+textarea {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 12px 10px; /* More substantial padding */
+    font-size: 1.4em; /* Larger input text */
+    margin-bottom: 20px;
+    background: #000000; /* Solid black */
+    color: #FFFF00; /* Electric yellow text */
+    border: 2px solid #00FFFF; /* Cyan border */
+    box-sizing: border-box;
+    border-radius: 0; /* No softness */
+    text-transform: uppercase;
+}
+
+.text_input {
+    width: calc(100% - 25px);
+}
+.check_input {
+    width: calc(100% - 225px);
+}
+.numb_input {
+    width: calc(100% - 25px);
+}
+
+/* --- Stats - Unadorned Data --- */
+.stats p {
+    margin: 5px 0;
+    color: #E0E0E0;
+    font-weight: bold; /* Bold stats */
+}
+
+/* --- Keyboard - Raw Grid of Controls --- */
+.keyboard {
+    margin: 20px auto;
+    display: inline-block;
+    user-select: none;
+    background: #222222; /* Dark, solid block */
+    border: 3px solid #00FFFF; /* Prominent border */
+    padding: 5px;
+    border-radius: 0;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin: 2px 0;
+}
+
+.key {
+    width: 40px; /* Larger, more significant keys */
+    height: 40px;
+    margin: 3px;
+    background: #444444; /* Dark gray key background */
+    border: 2px solid #666666; /* Defined gray border */
+    border-radius: 0; /* Absolutely square */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #E0E0E0; /* Light text on keys */
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.key.highlight {
+    background: #FFFF00; /* Electric yellow highlight */
+    color: #000000; /* Black text on highlight */
+    border-color: #FF00FF; /* Magenta border on highlight */
+}
+
+/* --- Dialog Overlay - Impenetrable Pop-up --- */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8); /* Opaque, heavy overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.dialog-box {
+    background: #111111; /* Deep black dialog */
+    color: #E0E0E0; /* Light text */
+    padding: 40px 50px; /* More substantial padding */
+    border-radius: 0; /* No curves */
+    border: 5px solid #FF00FF; /* Thick, magenta border */
+    text-align: center;
+    box-shadow: none; /* No soft shadows */
+}
+
+.dialog-box button {
+    margin-top: 30px; /* More separation */
+    padding: 10px 25px; /* Larger buttons */
+    background: #444444; /* Dark button */
+    color: #00FFFF; /* Cyan text */
+    border: 2px solid #E0E0E0; /* Light gray border */
+    border-radius: 0; /* Square buttons */
+    cursor: pointer;
+    font-size: 18px; /* Larger font */
+    font-family: 'Arial Black', sans-serif;
+    text-transform: uppercase;
+}
+
+.dialog-box button:hover {
+    background: #00FFFF; /* Cyan highlight on hover */
+    color: #111111; /* Dark text on hover */
+}
+
+/* --- Banner - Relentless Message Display --- */
+.banner-container {
+    position: relative;
+    height: 400px;
+    background: #111111; /* Solid black banner */
+    overflow: hidden;
+    color: #00FFFF; /* Cyan scrolling text */
+    font-size: 28px; /* Larger, more commanding text */
+    font-family: 'Impact', sans-serif; /* Hard-hitting font */
+    padding: 10px;
+    border: 3px solid #FF00FF; /* Magenta border */
+    box-sizing: border-box;
+    width: calc(100vw - 100px);
+    left: 45px;
+}
+
+.controls {
+    /*position: absolute;*/
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+    color: #E0E0E0;
+    font-weight: bold;
+}
+
+.banner-text {
+    position: absolute;
+    white-space: nowrap;
+    top: 80%;
+    transform: translateY(-50%);
+}
+
+.banner-text .typed {
+    color: #00FF00; /* Vibrant green for typed text */
+    font-weight: bold;
+}
+
+.banner-text .current {
+    text-decoration: none; /* No underline */
+    background: #FFFF00; /* Solid yellow block */
+    color: #111111; /* Dark text on yellow */
+    padding: 0 4px; /* More prominent highlight */
+}
+
+/* --- Memory Training - Austere Display --- */
+.memory-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: #222222; /* Matches container block */
+    padding: 20px;
+    border: 4px solid #00FFFF;
+    box-shadow: none;
+}
+
+.typing-phase textarea {
+    width: calc(100% - 20px);
+    font-size: 1.4rem;
+    padding: 12px 10px;
+    background: #000000;
+    color: #FFFF00;
+    border: 2px solid #00FFFF;
+    box-sizing: border-box;
+    resize: vertical;
+    border-radius: 0;
+}
+
+.results .perfect {
+    font-size: 2.2rem; /* Even larger */
+    color: #FFFF00; /* Solid gold/yellow */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.results .corrections {
+    margin-top: 25px; /* More spacing */
+}
+
+.correction-lines span {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* --- Settings Panel - Uncompromising Controls --- */
+.settings-container {
+    color: #E0E0E0;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #222222; /* Matches container block */
+    border: 4px solid #00FFFF;
+    box-shadow: none;
+}
+
+.settings-container h1 {
+    color: #FF00FF; /* Magenta heading */
+    font-family: 'Impact', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #00FFFF; /* Strong dividing line */
+    padding-bottom: 10px;
+}
+
+.mode-settings {
+    background: #111111; /* Darker, solid block */
+    padding: 20px; /* More padding */
+    margin-bottom: 25px;
+    border-radius: 0;
+    border: 2px solid #FF00FF; /* Magenta border */
+}
+
+.mode-settings h2 {
+    margin-top: 0;
+    color: #FFFF00; /* Yellow heading */
+    border-bottom: 1px solid #E0E0E0; /* Simple divider */
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.mode-settings label {
+    display: block;
+    margin-top: 15px; /* More space between labels */
+    color: #E0E0E0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.label {
+    margin-bottom: 100px; /* Preserving original large margin */
+    color: #E0E0E0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/* --- Neutral Colors (Grayscale and Backgrounds) --- */
+/* These form the stark foundation of your brutalist interface. */
+.color-neutral-bg-lightest { color: #E0E0E0; } /* Light gray text for contrast on dark backgrounds */
+.bg-neutral-bg-lightest { background-color: #E0E0E0; }
+
+.color-neutral-white { color: #FFFFFF; } /* Background for main containers, inputs, and key bases */
+.bg-neutral-white { background-color: #FFFFFF; }
+
+.color-neutral-border { color: #666666; } /* Used for defining key borders, a mid-gray */
+.bg-neutral-border { background-color: #666666; } /* No direct background use, but for consistency */
+
+.color-neutral-bg-subtle { color: #333333; } /* Dark charcoal/concrete background for the body */
+.bg-neutral-bg-subtle { background-color: #333333; }
+
+.color-neutral-text-dark { color: #1A1A1A; } /* Very dark gray/black for primary text, banner background */
+.bg-neutral-text-dark { background-color: #1A1A1A; }
+
+.color-neutral-text-medium { color: #444444; } /* Dark gray for key backgrounds, dialog buttons */
+.bg-neutral-text-medium { background-color: #444444; }
+
+.color-neutral-placeholder { color: #000000; } /* Solid black, often used for input backgrounds */
+.bg-neutral-placeholder { background-color: #000000; }
+
+
+/* --- Primary Colors --- */
+/* These are your core, high-impact interactive colors. */
+.color-primary-blue { color: #00FFFF; } /* Stark, electric cyan, used for prominent borders and button text */
+.bg-primary-blue { background-color: #00FFFF; }
+
+
+/* --- Secondary Colors --- */
+/* These provide strong, contrasting feedback. */
+.color-secondary-green { color: #00FF00; } /* Bright, raw green for "correct" states and typed text */
+.bg-secondary-green { background-color: #00FF00; }
+
+.color-secondary-green-hover { color: #00FF00; } /* Retaining this for consistency; the raw green */
+.bg-secondary-green-hover { background-color: #00FF00; }
+
+.color-secondary-green-active { color: #00FF00; } /* Retaining this for consistency; the raw green */
+.bg-secondary-green-active { background-color: #00FF00; }
+
+
+/* --- Accent Colors --- */
+/* These are used for warnings, highlights, and strong visual statements. */
+.color-accent-red { color: #FF0000; } /* Harsh, warning red for "incorrect" states */
+.bg-accent-red { background-color: #FF0000; }
+
+.color-accent-yellow { color: #FFFF00; } /* Electric yellow for input text, highlights, and "perfect" results */
+.bg-accent-yellow { background-color: #FFFF00; }

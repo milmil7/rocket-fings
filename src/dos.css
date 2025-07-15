@@ -1,0 +1,310 @@
+/* General Reset/Base for TUI Feel */
+body {
+    background: #000080; /* Dark Blue - Common Turbo Vision background */
+    color: #C0C0C0; /* Light Gray - Default text color */
+    font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace; /* Monospace font */
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* --- Container and General Layout --- */
+.container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    background: #0000A0; /* Slightly lighter blue for container background */
+    border: 2px solid #8080FF; /* Bright blue border for definition */
+    box-shadow: 4px 4px #000040; /* Simple "shadow" effect */
+}
+
+/* --- Text Elements --- */
+.text-to-type,
+.text-to-memorize {
+    margin: 20px 0;
+    font-size: 1.5em;
+    word-wrap: break-word;
+    background: #000000; /* Black background for text area */
+    color: #00FF00; /* Bright Green - Classic terminal/code color */
+    padding: 10px;
+    border: 1px solid #00C000; /* Slightly darker green border */
+}
+
+.correct {
+    color: #00FF00; /* Green */
+}
+
+.incorrect {
+    color: #FF0000; /* Red */
+}
+
+/* --- Input Fields --- */
+input,
+textarea {
+    width: calc(100% - 20px); /* Adjusting for padding */
+    padding: 8px 10px;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    background: #000000; /* Black input background */
+    color: #FFFF00; /* Yellow input text */
+    border: 1px solid #808080; /* Gray border */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.text_input {
+    width: calc(100% - 25px); /* Original values with TUI styling */
+}
+.check_input {
+    width: calc(100% - 225px); /* Original values with TUI styling */
+}
+.numb_input {
+    width: calc(100% - 25px); /* Original values with TUI styling */
+}
+
+/* --- Stats --- */
+.stats p {
+    margin: 5px 0;
+    color: #C0C0C0; /* Light Gray */
+}
+
+/* --- Keyboard --- */
+.keyboard {
+    margin: 20px auto;
+    display: inline-block;
+    user-select: none;
+    border: 1px solid #808080; /* Simple border for the whole keyboard */
+    background: #000080; /* Matches body background */
+    padding: 5px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin: 2px 0;
+}
+
+.key {
+    width: 35px; /* Slightly larger keys */
+    height: 35px;
+    margin: 2px;
+    background: #404040; /* Dark gray key background */
+    border: 1px solid #808080; /* Gray key border */
+    border-radius: 0; /* No border-radius for blocky look */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #E0E0E0; /* Light text on keys */
+    text-transform: uppercase; /* Common in TUIs */
+    font-weight: bold;
+}
+
+.key.highlight {
+    background: #FFFF00; /* Yellow highlight */
+    color: #000000; /* Black text on highlight */
+    border-color: #FFFF00;
+}
+
+/* --- Dialog Overlay (Popup) --- */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay for focus */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.dialog-box {
+    background: #0000A0; /* Matches container background */
+    color: #C0C0C0; /* Light gray text */
+    padding: 30px 40px;
+    border-radius: 0; /* No border-radius */
+    border: 2px solid #8080FF; /* Bright blue border */
+    text-align: center;
+    box-shadow: 6px 6px #000040; /* Prominent shadow */
+}
+
+.dialog-box button {
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #404040; /* Dark gray button */
+    color: #E0E0E0; /* Light text */
+    border: 1px solid #808080; /* Gray border */
+    border-radius: 0; /* No border-radius */
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Consolas', monospace;
+    text-transform: uppercase;
+}
+
+.dialog-box button:hover {
+    background: #808080; /* Lighter gray on hover */
+    color: #000000; /* Black text on hover */
+}
+
+/* --- Banner (Marquee/Scrolling Text) --- */
+.banner-container {
+    position: relative;
+    height: 100px; /* Slightly reduced height */
+    background: #000000; /* Black background */
+    overflow: hidden;
+    color: #00FF00; /* Bright green text */
+    font-size: 28px; /* Slightly smaller for more text fitting */
+    font-family: 'Consolas', monospace;
+    padding: 5px;
+    border: 1px solid #00C000; /* Green border */
+    box-sizing: border-box;
+}
+
+.controls {
+    position: absolute;
+    top: 5px; /* Adjust positioning */
+    left: 5px;
+    z-index: 5;
+    color: #C0C0C0; /* Light gray for controls */
+}
+
+.banner-text {
+    position: absolute;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.banner-text .typed {
+    color: #00FFFF; /* Cyan for typed text */
+}
+
+.banner-text .current {
+    text-decoration: none; /* Remove underline */
+    background: #FFFF00; /* Yellow background for current character */
+    color: #000000; /* Black text for current character */
+    padding: 0 2px; /* Small padding to make it stand out */
+}
+
+/* --- Memory Training Specifics --- */
+.memory-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: #0000A0; /* Matches main container */
+    padding: 15px;
+    border: 2px solid #8080FF;
+    box-shadow: 4px 4px #000040;
+}
+
+.typing-phase textarea {
+    width: calc(100% - 20px); /* Adjusting for padding */
+    font-size: 1.2rem;
+    padding: 8px 10px;
+    background: #000000;
+    color: #FFFF00;
+    border: 1px solid #808080;
+    box-sizing: border-box;
+    resize: vertical; /* Allow vertical resizing for textarea */
+}
+
+.results .perfect {
+    font-size: 2rem;
+    color: #FFFF00; /* Gold/Yellow for perfect */
+    font-weight: bold;
+}
+
+.results .corrections {
+    margin-top: 20px;
+}
+
+.correction-lines span {
+    font-size: 1.4rem;
+}
+
+/* --- Settings Panel --- */
+.settings-container {
+    color: #C0C0C0; /* Light gray text */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #0000A0; /* Matches main container */
+    border: 2px solid #8080FF;
+    box-shadow: 4px 4px #000040;
+}
+
+.mode-settings {
+    background: #000080; /* Slightly darker than container */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 0; /* No border-radius */
+    border: 1px solid #8080FF; /* Blue border */
+}
+
+.mode-settings h2 {
+    margin-top: 0;
+    color: #FFFF00; /* Yellow heading */
+    border-bottom: 1px dashed #808080; /* Dashed separator */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.mode-settings label {
+    display: block;
+    margin-top: 10px;
+    color: #C0C0C0;
+}
+
+.label {
+    margin-bottom: 100px; /* Kept original value, but it's very large */
+    color: #C0C0C0;
+}
+/* --- Neutral Colors (Grayscale and Backgrounds) --- */
+/* These form the base and structure of your TUI interface. */
+.color-neutral-bg-lightest { color: #C0C0C0; } /* Light Gray - Default text color, controls */
+.bg-neutral-bg-lightest { background-color: #C0C0C0; }
+
+.color-neutral-white { color: #E0E0E0; } /* Light text on keys and dialog buttons */
+.bg-neutral-white { background-color: #E0E0E0; } /* No direct background, but for consistency */
+
+.color-neutral-border { color: #808080; } /* Gray - Input border, keyboard border, key border, dialog button border */
+.bg-neutral-border { background-color: #808080; } /* Lighter gray on dialog button hover */
+
+.color-neutral-bg-subtle { color: #0000A0; } /* Slightly lighter blue for container, dialog, memory, and settings backgrounds */
+.bg-neutral-bg-subtle { background-color: #0000A0; }
+
+.color-neutral-text-dark { color: #000000; } /* Black - Text area background, input background, key highlight text, banner background */
+.bg-neutral-text-dark { background-color: #000000; }
+
+.color-neutral-text-medium { color: #404040; } /* Dark Gray - Key background, dialog button background */
+.bg-neutral-text-medium { background-color: #404040; }
+
+.color-neutral-placeholder { color: #C0C0C0; } /* Placeholder behavior is covered by general text color in this TUI */
+.bg-neutral-placeholder { background-color: #C0C0C0; } /* No direct background use, but for consistency */
+
+
+/* --- Primary Colors --- */
+/* The main interactive color, often blue in TUI for borders and key elements. */
+.color-primary-blue { color: #8080FF; } /* Bright Blue - Prominent borders for container, dialog, etc. */
+.bg-primary-blue { background-color: #8080FF; }
+
+
+/* --- Secondary Colors --- */
+/* Complementary colors for success, and specific UI elements, often green in TUI. */
+.color-secondary-green { color: #00FF00; } /* Bright Green - Classic terminal text color, correct states */
+.bg-secondary-green { background-color: #00FF00; }
+
+.color-secondary-green-hover { color: #00C000; } /* Slightly darker green - Text area border, banner border */
+.bg-secondary-green-hover { background-color: #00C000; }
+
+.color-secondary-green-active { color: #00C000; } /* Same darker green for consistency in active states */
+.bg-secondary-green-active { background-color: #00C000; }
+
+
+/* --- Accent Colors --- */
+/* Used for warnings, highlights, and distinctive UI elements. */
+.color-accent-red { color: #FF0000; } /* Red - Incorrect state */
+.bg-accent-red { background-color: #FF0000; } /* No direct background use, but for consistency */
+
+.color-accent-yellow { color: #FFFF00; } /* Yellow - Input text, key highlight, banner current char background, perfect results */
+.bg-accent-yellow { background-color: #FFFF00; }

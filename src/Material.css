@@ -1,0 +1,372 @@
+/* General Body - The Material Canvas */
+body {
+    background: #F5F5F5; /* Light gray background, common for Material */
+    color: #212121; /* Dark gray for primary text */
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; /* Roboto is the quintessential Material font */
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top, not center vertically for general content */
+    min-height: 100vh;
+    /*padding-top: 20px; !* Add some top padding *!*/
+}
+
+/* --- Material Elevation Helper Classes --- */
+/* These simulate Z-depth with specific shadow values */
+.material-elevation-1 { /* For subtle lifted elements (e.g., cards, default buttons) */
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+    0 3px 1px -2px rgba(0,0,0,0.12),
+    0 1px 5px 0 rgba(0,0,0,0.20);
+}
+
+.material-elevation-2 { /* For raised elements (e.g., dialogs, hovered buttons) */
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),
+    0 1px 10px 0 rgba(0,0,0,0.12),
+    0 2px 4px -1px rgba(0,0,0,0.20);
+}
+
+.material-elevation-4 { /* For prominent elements (e.g., FABs, active dialogs) */
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14),
+    0 3px 14px 2px rgba(0,0,0,0.12),
+    0 5px 5px -3px rgba(0,0,0,0.20);
+}
+
+/* --- Container - A Material Card --- */
+.container {
+    max-width: 600px;
+    margin: 20px; /* Consistent margin */
+    text-align: center;
+    padding: 30px;
+    background: #FFFFFF; /* White background for cards */
+    border-radius: 8px; /* Slightly rounded corners */
+    @extend .material-elevation-1; /* Default elevation for the card */
+    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1); /* Smooth shadow transition */
+}
+
+.container:hover {
+    @extend .material-elevation-2; /* Lift on hover */
+}
+
+/* --- Text Elements - Clear and Legible --- */
+.text-to-type,
+.text-to-memorize {
+    margin: 25px 0;
+    font-size: 1.4em;
+    word-wrap: break-word;
+    padding: 20px;
+    font-weight: 400; /* Regular weight */
+    color: #424242; /* Slightly softer text for content */
+    background: #EEEEEE; /* Light gray background for text blocks */
+    border-radius: 4px; /* Minor rounding */
+}
+
+.correct {
+    color: #4CAF50; /* Material Green 500 */
+}
+
+.incorrect {
+    color: #F44336; /* Material Red 500 */
+}
+
+/* --- Input Fields - Underlined and Elevated --- */
+input,
+textarea {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px 10px 8px 10px; /* Padding for text, bottom for underline */
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #212121;
+    background: none; /* No background fill */
+    border: none; /* Remove default border */
+    border-bottom: 1px solid #BDBDBD; /* Light gray underline */
+    outline: none; /* Remove outline */
+    border-radius: 0; /* No rounding for inputs */
+    transition: border-bottom-color 0.2s ease-in-out;
+}
+
+input:focus,
+textarea:focus {
+    border-bottom: 2px solid #2196F3; /* Material Blue 500 thicker underline on focus */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9E9E9E; /* Medium gray placeholder */
+}
+
+/* Specific input widths - applied over material base */
+.text_input {
+    width: calc(100% - 25px);
+}
+.check_input {
+    width: calc(100% - 225px);
+}
+.numb_input {
+    width: calc(100% - 25px);
+}
+
+/* --- Stats - Subtle and Informative --- */
+.stats p {
+    margin: 10px 0;
+    color: #616161; /* Darker gray for stats */
+    font-weight: 400;
+    font-size: 0.95em;
+}
+
+/* --- Keyboard - Flat Buttons on a Card --- */
+.keyboard {
+    margin: 30px auto;
+    display: inline-block;
+    user-select: none;
+    padding: 15px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    @extend .material-elevation-1; /* Keyboard as a whole is an elevated card */
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin: 4px 0;
+}
+
+.key {
+    width: 48px;
+    height: 48px;
+    margin: 4px;
+    color: #212121;
+    font-weight: 500; /* Medium weight */
+    font-size: 1.1em;
+    text-transform: uppercase;
+    background: #E0E0E0; /* Light gray for default key background */
+    border-radius: 4px; /* Softly rounded key corners */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @extend .material-elevation-1; /* Keys have a default subtle lift */
+    transition: background 0.2s ease-in-out, box-shadow 0.2s cubic-bezier(.25,.8,.25,1);
+}
+
+.key:hover {
+    background: #D6D6D6; /* Slightly darker on hover */
+    @extend .material-elevation-2; /* Lift more on hover */
+}
+
+.key:active {
+    background: #B0BEC5; /* Gray 300 on press */
+    box-shadow: none; /* Shadow disappears on press (sinks in) */
+    transform: translateY(1px); /* Small visual press effect */
+}
+
+.key.highlight {
+    background: #2196F3; /* Material Blue 500 for highlight */
+    color: #FFFFFF; /* White text on highlight */
+    @extend .material-elevation-2; /* Lifted when highlighted */
+}
+
+/* --- Dialog Overlay - Elevated and Focused --- */
+.dialog-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark, translucent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.dialog-box {
+    padding: 40px 50px;
+    background: #FFFFFF;
+    color: #212121;
+    border-radius: 8px;
+    text-align: center;
+    @extend .material-elevation-4; /* High elevation for dialogs */
+    /* No hover effect, as dialogs are static once open */
+}
+
+.dialog-box h2 {
+    color: #212121;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.dialog-box button {
+    margin-top: 30px;
+    padding: 12px 28px;
+    color: #FFFFFF; /* White text */
+    background: #2196F3; /* Material Blue 500 for primary actions */
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px; /* Slightly rounded buttons */
+    @extend .material-elevation-1; /* Default button elevation */
+    transition: background 0.2s ease-in-out, box-shadow 0.2s cubic-bezier(.25,.8,.25,1);
+}
+
+.dialog-box button:hover {
+    background: #1976D2; /* Darker blue on hover (Blue 700) */
+    @extend .material-elevation-2; /* Lift on hover */
+}
+
+.dialog-box button:active {
+    background: #0D47A1; /* Darker blue on press (Blue 900) */
+    box-shadow: none; /* Shadow disappears on press */
+    transform: translateY(1px);
+}
+
+/* --- Banner - Elevated and Clear --- */
+.banner-container {
+    position: relative;
+    height: 400px;
+    background: #2196F3; /* Primary blue for banner/app bar feel */
+    overflow: hidden;
+    font-size: 32px;
+    font-family: 'Roboto', monospace; /* Keep monospace for code, but Roboto feel */
+    padding: 15px;
+    color: #FFFFFF; /* White text on blue background */
+    border-radius: 4px; /* Soft rounding */
+    @extend .material-elevation-1; /* Default elevation for the banner */
+    margin-bottom: 25px;
+    box-sizing: border-box; /* Ensure padding is included in height */
+    width: calc(100vw - 100px);
+    left: 30px;
+}
+
+.controls {
+    /*position: absolute;*/
+    top: 15px;
+    left: 15px;
+    z-index: 5;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 0.9em; /* Smaller controls */
+}
+
+.banner-text {
+    position: absolute;
+    white-space: nowrap;
+    top: 80%;
+    transform: translateY(-50%);
+    width: 100%; /* Ensure text scrolls within its container */
+    left: 0; /* Reset left position for animation */
+    padding: 0 15px; /* Padding for text within the banner */
+    box-sizing: border-box;
+}
+
+.banner-text .typed {
+    color: #C8E6C9; /* Lighter green for typed (A200) */
+}
+
+.banner-text .current {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2); /* Subtle white highlight */
+    color: #FFFDE7; /* Light yellow text for current char */
+    padding: 0 4px;
+    border-radius: 2px; /* Slight rounding for highlight */
+}
+
+/* --- Memory Training - Structured Cards --- */
+.memory-container {
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    padding: 30px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    @extend .material-elevation-1;
+}
+
+.typing-phase textarea {
+    width: calc(100% - 20px);
+    font-size: 1.1rem;
+    padding: 10px 10px 8px 10px;
+    color: #212121;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #BDBDBD;
+    outline: none;
+    resize: vertical;
+    border-radius: 0;
+    transition: border-bottom-color 0.2s ease-in-out;
+}
+
+.typing-phase textarea:focus {
+    border-bottom: 2px solid #2196F3;
+}
+
+.results .perfect {
+    font-size: 2rem;
+    color: #4CAF50; /* Green 500 for perfect */
+    font-weight: 500;
+    margin-top: 25px;
+    display: block;
+}
+
+.results .corrections {
+    margin-top: 25px;
+    padding: 20px;
+    background: #EEEEEE; /* Light gray background */
+    border-radius: 4px;
+}
+
+.correction-lines span {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #424242;
+}
+
+/* --- Settings Panel - Clean, Organized Cards --- */
+.settings-container {
+    color: #212121;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    padding: 30px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    @extend .material-elevation-1;
+}
+
+.settings-container h1 {
+    color: #212121;
+    font-size: 2em;
+    margin-bottom: 25px;
+    font-weight: 500;
+    border-bottom: 1px solid #E0E0E0; /* Light gray divider */
+    padding-bottom: 10px;
+}
+
+.mode-settings {
+    padding: 20px;
+    margin-bottom: 25px;
+    background: #F5F5F5; /* Background for grouped settings */
+    border-radius: 4px;
+}
+
+.mode-settings h2 {
+    margin-top: 0;
+    color: #424242;
+    font-size: 1.4em;
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.mode-settings label {
+    display: block;
+    margin-top: 15px;
+    color: #424242;
+    font-weight: 400;
+}
+
+.label {
+    margin-bottom: 100px; /* Original large margin */
+    color: #424242;
+    font-weight: 400;
+}

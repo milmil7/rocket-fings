@@ -1,0 +1,408 @@
+/* General Body - The Flat Canvas */
+body {
+  background: #ECF0F1; /* Light gray/almost white - often a soft, muted background */
+  color: #2C3E50; /* Dark blue-gray for primary text */
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; /* Clean, modern sans-serif */
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  /*padding-top: 20px;*/
+}
+
+/* --- Container - A Simple, Defined Block --- */
+.container {
+  max-width: 600px;
+  margin: 20px;
+  text-align: center;
+  padding: 30px;
+  background: #FFFFFF; /* Pure white or a contrasting solid color */
+  border: 1px solid #BDC3C7; /* Subtle border for definition */
+  border-radius: 0; /* No rounded corners, sharp edges */
+  box-shadow: none; /* Absolutely no shadows */
+}
+
+/* --- Text Elements - Bold and Unadorned --- */
+.text-to-type,
+.text-to-memorize {
+  margin: 25px 0;
+  font-size: 1.4em;
+  word-wrap: break-word;
+  padding: 20px;
+  font-weight: 600; /* Semi-bold for prominence */
+  color: #2C3E50;
+  background: #F8F8F8; /* Very light, subtle background for text blocks */
+  border: 1px solid #BDC3C7; /* Thin border */
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.correct {
+  color: #27AE60; /* Flat Green */
+}
+
+.incorrect {
+  color: #E74C3C; /* Flat Red */
+}
+
+/* --- Input Fields - Clean and Direct --- */
+input,
+textarea {
+  width: calc(100% - 20px); /* Account for padding */
+  padding: 12px 10px;
+  font-size: 1.1em;
+  margin-bottom: 25px;
+  color: #2C3E50;
+  background: #FFFFFF; /* White background */
+  border: 1px solid #BDC3C7; /* Thin, distinct border */
+  outline: none; /* No default outline */
+  border-radius: 0;
+  box-shadow: none;
+  transition: border-color 0.2s ease-in-out; /* Smooth transition for focus */
+}
+
+input:focus,
+textarea:focus {
+  border-color: #3498DB; /* Blue border on focus */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #7F8C8D; /* Muted gray placeholder */
+}
+
+/* Specific input widths - applied over flat base */
+.text_input {
+  width: calc(100% - 25px);
+}
+.check_input {
+  width: calc(100% - 225px);
+}
+.numb_input {
+  width: calc(100% - 25px);
+}
+
+/* --- Stats - Unadorned Data Display --- */
+.stats p {
+  margin: 10px 0;
+  background-color: #34495E;
+  color: #f1f2f2; /* Slightly darker for stats */
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+/* --- Keyboard - A Grid of Flat Buttons --- */
+.keyboard {
+  margin: 30px auto;
+  display: inline-block;
+  user-select: none;
+  padding: 15px;
+  background: #ECF0F1; /* Matches body background for integration */
+  border: 1px solid #BDC3C7;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0;
+}
+
+.key {
+  width: 48px;
+  height: 48px;
+  margin: 4px;
+  color: #2C3E50;
+  font-weight: 700; /* Bolder keys */
+  font-size: 1.1em;
+  text-transform: uppercase;
+  background: #FFFFFF; /* White key background */
+  border: 1px solid #BDC3C7;
+  border-radius: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  transition: background 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+.key:hover {
+  background: #BDC3C7; /* Muted gray on hover */
+  color: #FFFFFF;
+}
+
+.key:active {
+  background: #3498DB; /* Blue on press */
+  color: #FFFFFF;
+  transform: translateY(0); /* No transform for flat */
+  box-shadow: none;
+}
+
+.key.highlight {
+  background: #3498DB; /* Flat Blue for highlight */
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+/* --- Dialog Overlay - Simple, Opaque Modal --- */
+.dialog-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(44, 62, 80, 0.8); /* Dark, opaque overlay matching text color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.dialog-box {
+  padding: 40px 50px;
+  background: #FFFFFF;
+  color: #2C3E50;
+  border-radius: 0;
+  text-align: center;
+  border: 1px solid #BDC3C7;
+  box-shadow: none;
+}
+
+.dialog-box h2 {
+  color: #2C3E50;
+  margin-bottom: 25px;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.dialog-box button {
+  margin-top: 30px;
+  padding: 12px 28px;
+  color: #FFFFFF;
+  background: #2ECC71; /* Flat Green for primary action */
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: background 0.2s ease-in-out;
+}
+
+.dialog-box button:hover {
+  background: #27AE60; /* Darker green on hover */
+}
+
+.dialog-box button:active {
+  background: #229954; /* Even darker green on press */
+  transform: translateY(0);
+}
+
+/* --- Banner - Bold, Solid Header --- */
+.banner-container {
+  position: relative;
+  height: 400px;
+  background: #34495E; /* Dark flat blue for the banner */
+  overflow: hidden;
+  font-size: 32px;
+  font-family: 'Open Sans', monospace; /* Maintain monospace, but flat font */
+  padding: 15px;
+  color: #FFFFFF; /* White text on dark banner */
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  width: calc(100vw - 100px);
+  left: 30px;
+}
+
+.controls {
+  /*position: absolute;*/
+  top: 15px;
+  left: 15px;
+  z-index: 5;
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+.banner-text {
+  position: absolute;
+  white-space: nowrap;
+  top: 80%;
+  transform: translateY(-50%);
+  width: 100vw;
+  left: 0;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.banner-text .typed {
+  color: #2ECC71; /* Flat Green for typed text */
+}
+
+.banner-text .current {
+  text-decoration: none;
+  background: #F1C40F; /* Flat Yellow for current char highlight */
+  color: #2C3E50; /* Dark text on highlight */
+  padding: 0 4px;
+  border-radius: 0;
+}
+
+/* --- Memory Training - Clean Data Blocks --- */
+.memory-container {
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  padding: 30px;
+  background: #FFFFFF;
+  border: 1px solid #BDC3C7;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.typing-phase textarea {
+  width: calc(100% - 20px);
+  font-size: 1.1rem;
+  padding: 12px 10px;
+  color: #2C3E50;
+  background: #FFFFFF;
+  border: 1px solid #BDC3C7;
+  outline: none;
+  resize: vertical;
+  border-radius: 0;
+  box-shadow: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.typing-phase textarea:focus {
+  border-color: #3498DB;
+}
+
+.results .perfect {
+  font-size: 2rem;
+  color: #27AE60; /* Flat Green for perfect */
+  font-weight: 700;
+  margin-top: 25px;
+  display: block;
+}
+
+.results .corrections {
+  margin-top: 25px;
+  padding: 20px;
+  background: #F8F8F8;
+  border: 1px solid #BDC3C7;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.correction-lines span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #34495E;
+}
+
+/* --- Settings Panel - Structured Control Blocks --- */
+.settings-container {
+  color: #2C3E50;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  padding: 30px;
+  background: #FFFFFF;
+  border: 1px solid #BDC3C7;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.settings-container h1 {
+  color: #2C3E50;
+  font-size: 2em;
+  margin-bottom: 25px;
+  font-weight: 700;
+  border-bottom: 1px solid #BDC3C7; /* Simple, thin divider */
+  padding-bottom: 10px;
+}
+
+.mode-settings {
+  padding: 20px;
+  margin-bottom: 25px;
+  background: #F8F8F8;
+  border: 1px solid #BDC3C7;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.mode-settings h2 {
+  margin-top: 0;
+  color: #34495E;
+  font-size: 1.4em;
+  border-bottom: 1px solid #BDC3C7;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.mode-settings label {
+  display: block;
+  margin-top: 15px;
+  color: #34495E;
+  font-weight: 400;
+}
+
+.label {
+  margin-bottom: 100px; /* Original large margin */
+  color: #34495E;
+  font-weight: 400;
+}
+
+/* --- Neutral Colors (Grayscale and Backgrounds) --- */
+/* These form the base of your interface. */
+.color-neutral-bg-lightest { color: #ECF0F1; } /* Lightest background, body default */
+.bg-neutral-bg-lightest { background-color: #ECF0F1; }
+
+.color-neutral-white { color: #FFFFFF; } /* Pure white for elements */
+.bg-neutral-white { background-color: #FFFFFF; }
+
+.color-neutral-border { color: #BDC3C7; } /* Subtle border/divider gray */
+.bg-neutral-border { background-color: #BDC3C7; }
+
+.color-neutral-bg-subtle { color: #F8F8F8; } /* Slightly off-white background for sub-sections */
+.bg-neutral-bg-subtle { background-color: #F8F8F8; }
+
+.color-neutral-text-dark { color: #2C3E50; } /* Primary dark text color */
+.bg-neutral-text-dark { background-color: #2C3E50; }
+
+.color-neutral-text-medium { color: #34495E; } /* Medium dark text for secondary content/headers */
+.bg-neutral-text-medium { background-color: #34495E; }
+
+.color-neutral-placeholder { color: #7F8C8D; } /* Muted gray for placeholder text */
+.bg-neutral-placeholder { background-color: #7F8C8D; }
+
+
+/* --- Primary Colors --- */
+/* The main interactive color, often used for primary buttons, links, and focus states. */
+.color-primary-blue { color: #3498DB; }
+.bg-primary-blue { background-color: #3498DB; }
+
+
+/* --- Secondary Colors --- */
+/* A complementary interactive color, often used for secondary actions or success states. */
+.color-secondary-green { color: #2ECC71; } /* Used for main action buttons */
+.bg-secondary-green { background-color: #2ECC71; }
+
+.color-secondary-green-hover { color: #27AE60; } /* Darker green for hover state */
+.bg-secondary-green-hover { background-color: #27AE60; }
+
+.color-secondary-green-active { color: #229954; } /* Even darker green for active/pressed state */
+.bg-secondary-green-active { background-color: #229954; }
+
+
+/* --- Accent Colors --- */
+/* Used for highlights, warnings, errors, or less frequent interactive elements. */
+.color-accent-red { color: #E74C3C; } /* For errors or warnings */
+.bg-accent-red { background-color: #E74C3C; }
+
+.color-accent-yellow { color: #F1C40F; } /* For highlights or specific attention */
+.bg-accent-yellow { background-color: #F1C40F; }

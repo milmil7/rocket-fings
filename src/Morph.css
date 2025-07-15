@@ -1,0 +1,369 @@
+/* General Body - The Soft Canvas */
+body {
+    background: #E0E5EC; /* Main background color - a soft, light gray/blue */
+    color: #3C4043; /* Darker gray for main text */
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex; /* Use flexbox for centering body content if needed */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    margin: 0;
+}
+
+/* --- Base Neumorphic Element Styling (Mixin-like) --- */
+/* This is a common pattern in Neumorphism to avoid repetition */
+.neumorphic-base {
+    border-radius: 20px; /* Softly rounded corners */
+    background: #E0E5EC; /* Matches body background */
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), /* Darker shadow (bottom-right) */
+    -9px -9px 16px rgba(255, 255, 255, 0.5); /* Lighter shadow (top-left) */
+    transition: all 0.2s ease-in-out; /* Smooth transitions for interactions */
+}
+
+/* For "pressed in" elements (e.g., inputs, active buttons) */
+.neumorphic-pressed {
+    border-radius: 20px;
+    background: #E0E5EC;
+    box-shadow: inset 5px 5px 10px rgba(163, 177, 198, 0.5), /* Inner dark shadow */
+    inset -5px -5px 10px rgba(255, 255, 255, 0.7); /* Inner light shadow */
+}
+
+/* --- Container - The Main Soft Block --- */
+.container {
+    max-width: 600px;
+    margin: 20px; /* Add some margin for spacing */
+    text-align: center;
+    padding: 30px;
+    @extend .neumorphic-base; /* Apply base neumorphic styles */
+    box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.7), /* Slightly more prominent for main container */
+    -12px -12px 24px rgba(255, 255, 255, 0.6);
+}
+
+/* --- Text Elements - Softly Extruded Display --- */
+.text-to-type,
+.text-to-memorize {
+    margin: 25px 0;
+    font-size: 1.4em;
+    word-wrap: break-word;
+    padding: 20px;
+    font-weight: 500; /* Medium weight */
+    color: #55585C; /* Slightly darker text for contrast */
+    @extend .neumorphic-pressed; /* Makes these areas appear "recessed" */
+}
+
+.correct {
+    color: #4CAF50; /* Softer green */
+}
+
+.incorrect {
+    color: #F44336; /* Softer red */
+}
+
+/* --- Input Fields - Pressable, Recessed --- */
+input,
+textarea {
+    width: calc(100% - 40px); /* Adjust for padding and visual space */
+    padding: 15px 20px;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #3C4043;
+    @extend .neumorphic-pressed; /* Always appears pressed in */
+    outline: none; /* Remove default outline */
+    border: none; /* Remove default border */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #8C99A4; /* Light, soft placeholder text */
+}
+
+/* Specific input widths - applied over neumorphic base */
+.text_input {
+    width: calc(100% - 25px); /* Keep original calc for specific width, but base padding still applies */
+}
+.check_input {
+    width: calc(100% - 225px);
+}
+.numb_input {
+    width: calc(100% - 25px);
+}
+
+/* --- Stats - Integrated & Subtle --- */
+.stats p {
+    margin: 10px 0;
+    color: #55585C;
+    font-weight: 500;
+}
+
+/* --- Keyboard - A Soft Panel of Buttons --- */
+.keyboard {
+    margin: 30px auto;
+    display: inline-block;
+    user-select: none;
+    padding: 15px;
+    @extend .neumorphic-base; /* Keyboard as a whole feels extruded */
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin: 6px 0; /* More spacing between rows */
+}
+
+.key {
+    width: 48px; /* Larger, more finger-friendly keys */
+    height: 48px;
+    margin: 4px; /* More space around keys */
+    color: #3C4043;
+    font-weight: 600;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    @extend .neumorphic-base; /* Each key is an extruded button */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.key:hover {
+    box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.4); /* Subtle hover effect */
+}
+
+.key:active {
+    @extend .neumorphic-pressed; /* Key presses in */
+    color: #007bff; /* Slight blue tint on press */
+}
+
+.key.highlight {
+    @extend .neumorphic-pressed; /* Highlighted keys appear pressed */
+    color: #007bff; /* Blue for highlight */
+}
+
+/* --- Dialog Overlay - Soft, Modal Popup --- */
+.dialog-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(224, 229, 236, 0.8); /* Semi-transparent background matching body */
+    backdrop-filter: blur(5px); /* Optional: subtle blur for the background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.dialog-box {
+    padding: 40px 50px;
+    color: #3C4043;
+    @extend .neumorphic-base; /* Dialog box itself is extruded */
+    text-align: center;
+    box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.8),
+    -12px -12px 24px rgba(255, 255, 255, 0.7); /* More prominent shadow for dialog */
+}
+
+.dialog-box h2 {
+    color: #3C4043;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.dialog-box button {
+    margin-top: 30px;
+    padding: 12px 28px;
+    color: #3C4043;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    @extend .neumorphic-base; /* Buttons are extruded */
+}
+
+.dialog-box button:hover {
+    box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.4);
+}
+
+.dialog-box button:active {
+    @extend .neumorphic-pressed; /* Button presses in */
+    color: #007bff;
+}
+
+/* --- Banner - Softly Integrated Display --- */
+.banner-container {
+    position: relative;
+    height: 400px;
+    width: calc(100vw - 100px);
+    left: 30px;
+    overflow: hidden;
+    font-size: 32px;
+    font-family: monospace; /* Keeping monospace for this for a classic typing feel */
+    padding: 15px;
+    color: #55585C;
+    @extend .neumorphic-pressed; /* Banner appears recessed */
+    margin-bottom: 25px; /* Add margin below banner */
+}
+
+.controls {
+    /*position: absolute;*/
+    top: 15px;
+    left: 15px;
+    z-index: 5;
+    color: #55585C;
+    font-weight: 500;
+}
+
+.banner-text {
+    position: absolute;
+    white-space: nowrap;
+    top: 80%;
+    transform: translateY(-50%);
+}
+
+.banner-text .typed {
+    color: #4CAF50; /* Softer green */
+}
+
+.banner-text .current {
+    text-decoration: none;
+    background: rgba(0, 123, 255, 0.2); /* Soft blue highlight */
+    color: #007bff; /* Blue text */
+    padding: 0 4px;
+    border-radius: 4px; /* Soft highlight corners */
+}
+
+/* --- Memory Training - Unified Soft Blocks --- */
+.memory-container {
+    max-width: 600px;
+    margin: 0 auto 20px auto; /* Add bottom margin */
+    text-align: center;
+    padding: 30px;
+    @extend .neumorphic-base;
+}
+
+.typing-phase textarea {
+    width: calc(100% - 40px);
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    color: #3C4043;
+    @extend .neumorphic-pressed;
+    outline: none;
+    border: none;
+    resize: vertical;
+}
+
+.results .perfect {
+    font-size: 2rem;
+    color: #4CAF50; /* Green for perfect */
+    font-weight: 600;
+    margin-top: 25px;
+    display: block;
+}
+
+.results .corrections {
+    margin-top: 25px;
+    padding: 20px;
+    @extend .neumorphic-pressed; /* Corrections section recessed */
+}
+
+.correction-lines span {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #55585C;
+}
+
+/* --- Settings Panel - Soft Control Surface --- */
+.settings-container {
+    color: #3C4043;
+    max-width: 600px;
+    margin: 0 auto 20px auto; /* Add bottom margin */
+    padding: 30px;
+    @extend .neumorphic-base;
+}
+
+.settings-container h1 {
+    color: #3C4043;
+    font-size: 2em;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(163, 177, 198, 0.4); /* Very subtle divider */
+    padding-bottom: 10px;
+}
+
+.mode-settings {
+    padding: 20px;
+    margin-bottom: 25px;
+    @extend .neumorphic-pressed; /* Settings section appears recessed */
+}
+
+.mode-settings h2 {
+    margin-top: 0;
+    color: #3C4043;
+    font-size: 1.4em;
+    border-bottom: 1px solid rgba(163, 177, 198, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.mode-settings label {
+    display: block;
+    margin-top: 15px;
+    color: #55585C;
+    font-weight: 500;
+}
+
+.label {
+    margin-bottom: 100px; /* Original large margin */
+    color: #55585C;
+    font-weight: 500;
+}
+
+/* --- Neutral Colors (Grayscale and Backgrounds) --- */
+.color-neutral-bg-lightest { color: #E0E5EC; } /* Main background color */
+.bg-neutral-bg-lightest { background-color: #E0E5EC; }
+
+.color-neutral-white { color: #FFFFFF; } /* Used in light shadow components and as base for some elements */
+.bg-neutral-white { background-color: #FFFFFF; } /* Used as background for keys, dialogs, etc. */
+
+.color-neutral-border { color: #A3B1C6; } /* Represents the darker shadow color, a key defining element in Neumorphism */
+.bg-neutral-border { background-color: #A3B1C6; } /* No direct background use, but for consistency */
+
+.color-neutral-bg-subtle { color: #F0F0F0; } /* Slightly off-white background for sub-sections/recessed areas */
+.bg-neutral-bg-subtle { background-color: #F0F0F0; }
+
+.color-neutral-text-dark { color: #3C4043; } /* Primary dark text color */
+.bg-neutral-text-dark { background-color: #3C4043; } /* No direct background use, but for consistency */
+
+.color-neutral-text-medium { color: #55585C; } /* Medium dark text for secondary content/headers/controls */
+.bg-neutral-text-medium { background-color: #55585C; } /* No direct background use, but for consistency */
+
+.color-neutral-placeholder { color: #8C99A4; } /* Muted gray for placeholder text */
+.bg-neutral-placeholder { background-color: #8C99A4; } /* No direct background use, but for consistency */
+
+
+/* --- Primary Colors --- */
+.color-primary-blue { color: #007bff; } /* Main interactive color for highlights and active states */
+.bg-primary-blue { background-color: #007bff; } /* Used as base for highlight backgrounds (e.g., banner current char) */
+
+
+/* --- Secondary Colors --- */
+.color-secondary-green { color: #4CAF50; } /* Softer green for success/correct states */
+.bg-secondary-green { background-color: #4CAF50; } /* No direct background use, but for consistency */
+
+.color-secondary-green-hover { color: #007bff; } /* Neumorphism uses the primary blue for button hover effects */
+.bg-secondary-green-hover { background-color: #007bff; }
+
+.color-secondary-green-active { color: #007bff; } /* Neumorphism uses the primary blue for button active/pressed states */
+.bg-secondary-green-active { background-color: #007bff; }
+
+
+/* --- Accent Colors --- */
+.color-accent-red { color: #F44336; } /* Softer red for error/incorrect states */
+.bg-accent-red { background-color: #F44336; } /* No direct background use, but for consistency */
+
+.color-accent-yellow { color: #E0E5EC; } /* No yellow in Neumorphism; assigned the main background as a neutral fallback */
+.bg-accent-yellow { background-color: #E0E5EC; }
